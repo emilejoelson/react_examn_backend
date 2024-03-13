@@ -14,11 +14,9 @@ public record ReservationDtoRequest(
         Long id,
         @NotNull(message = "Start date cannot be null")
         @FutureOrPresent(message = "Start date must be in the future or present")
-        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format. Date should be in yyyy-MM-dd format.")
         LocalDateTime startDate,
         @NotNull(message = "End date cannot be null")
         @Future(message = "End date must be in the future")
-        @Pattern(regexp = "^\\d{4}-\\d{2}-\\d{2}$", message = "Invalid date format. Date should be in yyyy-MM-dd format.")
         LocalDateTime endDate,
         Long meetingRoomId
 ) implements Serializable {
