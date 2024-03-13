@@ -26,7 +26,7 @@ public class ReservationController {
         return ResponseEntity.created(URI.create("/reservations/" + response.id())).body(response);
     }
 
-    @PostMapping
+    @PostMapping("/between_two_date")
     public ResponseEntity<ReservationDtoResponse> createReservationBetweenTwoDate(
             @Valid @RequestBody ReservationDtoRequest reservationDto,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime startDate,

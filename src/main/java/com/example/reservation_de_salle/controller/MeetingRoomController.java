@@ -28,17 +28,18 @@ public class MeetingRoomController {
     }
 
     @GetMapping
-    public ResponseEntity<List<MeetingRoomDtoResponse>> getAllWriters() {
+    public ResponseEntity<List<MeetingRoomDtoResponse>> getAllMeetingRooms() {
         List<MeetingRoomDtoResponse> response = meetingRoomService.getAllMeetingRooms();
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping()
-    public ResponseEntity<List<MeetingRoomDtoResponse>> getAllMeetingRooms(
+    @GetMapping("/between_two_date")
+    public ResponseEntity<List<MeetingRoomDtoResponse>> getAvailableMeetingRoomsBetweenDates(
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime startDate,
             @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss") LocalDateTime endDate
     ) {
         List<MeetingRoomDtoResponse> response = meetingRoomService.getAvailableMeetingRooms(startDate, endDate);
         return ResponseEntity.ok(response);
     }
+
 }
