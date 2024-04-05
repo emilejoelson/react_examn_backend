@@ -1,13 +1,13 @@
-package com.example.reservation_de_salle;
+package com.example.gestion_livres;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReservationDeSalleApplication {
+public class BookManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReservationDeSalleApplication.class, args);
+		SpringApplication.run(BookManagementApplication.class, args);
 	}
 
 }
