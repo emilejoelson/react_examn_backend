@@ -1,5 +1,6 @@
 package com.example.gestion_livres.services.implementation;
 
+import com.example.gestion_livres.Exception.RessourceNotFoundException;
 import com.example.gestion_livres.entities.Book;
 import com.example.gestion_livres.entities.User;
 import com.example.gestion_livres.repository.UserRepository;
@@ -22,7 +23,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByID(Long id) {
-        return userRepository.findById(id).orElse(null);
+        return userRepository.findById(id)
+                .orElseThrow(
+                        ()->new RessourceNotFoundException("User","id",id.toString()));
     }
 
     @Override
@@ -30,18 +33,4 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    @Override
-    public void updateUser(Long id, User user) {
-
-    }
-
-    @Override
-    public User addBookToUser(Long userId, Book book) {
-        return null;
-    }
-
-    @Override
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
-    }
 }

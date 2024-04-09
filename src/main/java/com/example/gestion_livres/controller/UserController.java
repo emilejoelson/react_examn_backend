@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,7 +18,7 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping
-    ResponseEntity<User> addUser(@RequestBody User user){
+    ResponseEntity<User> addUser(@Valid @RequestBody User user){
         User response  = userService.addUser(user);
         return  ResponseEntity.ok(response);
     }
